@@ -29,3 +29,24 @@ jobs:
           context: ./PARTE3/
           push: true
           tags: maxiorellano/craftech:latest, maxiorellano/craftech:${{ github.sha }}
+
+
+deploy-to-cluster:
+name: deploy
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: deploy to cluster
+      uses: steebchen/kubectl@v2.0.0
+      with: # defaults to latest kubectl binary version
+        config: ${{ secrets.KUBE_CONFIG_DATA }}
+        command: set image --record deployment/my-app craftech=${{ github.repository }}:${{ github.sha }}
+    - name: verify deployment
+      uses: steebchen/kubectl@v2.0.0
+      with:
+        context: ./PARTE3/
+        config: ${{ secrets.KUBE_CONFIG_DATA }}
+        version: v1.21.3 # specify kubectl binary version explicitly
+        command: rollout status deployment/my-app
