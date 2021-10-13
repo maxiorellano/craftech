@@ -29,12 +29,11 @@ jobs:
           context: ./PARTE3/
           push: true
           tags: maxiorellano/craftech:latest, , maxiorellano/craftech:${{ github.sha }}
-          
+
 deploy-to-cluster:
 name: deploy
 jobs:
   deploy:
-    name: deploy to cluster
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
