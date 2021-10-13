@@ -28,4 +28,4 @@ jobs:
         with:
           context: ./PARTE3/
           push: true
-          tags: maxiorellano/craftech:latest, , maxiorellano/craftech:${{ github.sha }}
+          tags: maxiorellano/craftech:latest, maxiorellano/craftech:${{ github.sha }}
