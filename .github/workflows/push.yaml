@@ -3,7 +3,7 @@ name: deploy
 jobs:
     deploy:
       name: deploy to cluster
-      runs-on: latest
+      runs-on: ubuntu-18.04
       steps:
       - uses: actions/checkout@master
       - name: build and push to docker
