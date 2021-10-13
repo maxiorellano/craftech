@@ -29,6 +29,7 @@ jobs:
           context: ./PARTE3/
           push: true
           tags: maxiorellano/craftech:latest, , maxiorellano/craftech:${{ github.sha }}
+          
 deploy-to-cluster:
 name: deploy
 jobs:
