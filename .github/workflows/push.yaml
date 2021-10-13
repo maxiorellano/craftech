@@ -28,4 +28,4 @@ jobs:
         with:
           context: ./PARTE3/
           push: true
-          tags: user/app:latest
+          tags: maxiorellano/craftech:latest
