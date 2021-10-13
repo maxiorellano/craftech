@@ -48,3 +48,6 @@ name: deploy
 checkout descarga el repositorio y comprueba si compila
 
 https://www.youtube.com/watch?v=MNBf-ylhtK0&t=80s
+https://github.com/docker/build-push-action#usage
+https://docs.github.com/es/actions/deployment/deploying-with-github-actions
+https://github.com/marketplace/actions/kubectl-simple
