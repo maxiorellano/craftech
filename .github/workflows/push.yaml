@@ -42,6 +42,7 @@ deploy-to-cluster:
         uses: steebchen/kubectl@v2.0.0
         with: # defaults to latest kubectl binary version
           config: ${{ secrets.KUBE_CONFIG_DATA }}
+          context: ./PARTE3/
           command: set image --record deployment/my-app craftech=${{ github.repository }}:${{ github.sha }}
     - name: verify deployment
       uses: steebchen/kubectl@v2.0.0
