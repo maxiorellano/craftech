@@ -1,6 +1,11 @@
-on: push
 name: deploy
-  jobs:
+on:
+  push:
+    branches:
+      - 'dev'
+    paths:
+      - 'Prueba3/**'
+jobs:
     paths:
     - '/PARTE3/**'
     deploy:
