@@ -1,5 +1,7 @@
 on: push
 name: deploy
+paths:
+  - 'PARTE3/**'
 jobs:
     deploy:
       name: deploy to cluster
