@@ -5,9 +5,9 @@ on:
   push:
     branches:
       - 'dev'
-jobs:
     paths:
-    - '/PARTE3/**'
+      - '/PARTE3/**'
+jobs:
     deploy:
       name: deploy to cluster
       runs-on: latest
