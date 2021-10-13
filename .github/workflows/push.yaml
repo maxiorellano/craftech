@@ -39,6 +39,7 @@ jobs:
     - name: deploy to cluster
       uses: steebchen/kubectl@v2.0.0
       with:
+        context: ./PARTE3/
         config: ${{ secrets.KUBE_CONFIG_DATA }}
         command: -n dev set image deployment/nginx nginx=maxiorellano/craftech:${{ github.sha }}
 
@@ -46,5 +47,6 @@ jobs:
       uses: steebchen/kubectl@v2.0.0
       with:
         version: v1.21.3
+        context: ./PARTE3/
         config: ${{ secrets.KUBE_CONFIG_DATA }}
         command: -n dev rollout status deployment/nginx
