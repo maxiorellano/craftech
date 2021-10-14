@@ -102,6 +102,7 @@ Una vez realizados estos pasos podremos conectarnos desde cualquier host a nuest
 Para la prueba es : ENVIAR POR CORREO
 
 REFERENCIAS:
+
 https://www.youtube.com/watch?v=E6jVbOlEVjU
 https://hub.docker.com/_/postgres
 https://docs.docker.com/samples/django/
@@ -110,22 +111,3 @@ https://github.com/blackadress/docker-django-postgres-nginx/tree/master/docker_d
 https://blackhold.nusepas.com/2020/12/04/caso-real-de-despliegue-con-docker-compose/
 https://platzi.com/blog/django-docker/
 https://dev.to/gaabgonca/desplegando-contenedores-de-docker-en-aws-ec2-a-traves-de-un-boton-7nh
-
-
-
-
-#### Prueba 3 - CI/CD
-
-Dockerizar un nginx con el index.html default.
-Elaborar un pipeline que ante cada cambio realizado sobre el index.html buildee la nueva imagen y la actualize en la plataforma elegida. (docker-compose, swarm, kuberenetes, etc.)
-Para la creacion del CI/CD se puede utilizar cualquier plataforma (CircleCI, Gitlab, Github, Bitbucket.)
-
-**Requisitos y deseables:**
-
-La solución al ejercicio debe mostrarnos que usted puede:
-
-Automatizar la parte del proceso de despliegue.
-usar conceptos de CI para aprovisionar el software necesario para que los entregables se ejecuten
-use cualquier herramienta de CI de su elección para implementar el entregable
-
-
