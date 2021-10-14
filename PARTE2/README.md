@@ -97,7 +97,7 @@ Y por ultimo para desplegar los contenedores, al igual que de manera local, se u
 $sudo docker-compose up --build
 
 Una vez realizados estos pasos podremos conectarnos desde cualquier host a nuestra aplicacion usando un navegador con:
-<ipInstancia>:<puertoExterno>
+"<ipInstancia>:<puertoExterno>"
 
 Para la prueba es : ENVIAR POR CORREO
 
