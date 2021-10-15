@@ -18,8 +18,8 @@ DESARROLLO:
 
 Para el desarrollo del pipeline se selecciono como herramienta Github Actions, y para desplegar la pagina con el index se usa Github Pages. 
 En primer lugar deberemos situarnos en nuestro directorio (PARTE3),  crear uno llamado .github/workflows y uno con extension.yaml, en este caso push.yaml: 
-$mkdir -p .github/workflows
-$touch .github/workflows/push.yaml 
+- $mkdir -p .github/workflows
+- $touch .github/workflows/push.yaml 
 
 El archivo push.yaml esta compuesto de la siguiente manera- las acciones aquí usadas se descargaron del market de github actions (cabe aclarar también que se explican los ítems solo una vez para evitar redundancia):
 

@@ -27,10 +27,10 @@ Adicionalmente hay que configurar variables de entorno en el archivo .env para l
 
 Una vez finalizada la creación de los Dockerfile pertinentes se debe proceder a construir los mismos. Para ello se debe ejecutar por separado y por consola, situándose en el directorio donde se encuentran ambos Dockerfile el siguiente comando:
 
-$ docker build -t <nombreContenedor:etiqueta>
+$ docker build -t "nombreContenedor:etiqueta"
 cabe destacar que el parametro -t (tag) indica la etiqueta. De otro modo se asignara un ID alfanumérico.
 Para ejecutar el contenedor construido ejecutar:
-$docker run -d -it <puertoExterno:puertoInterno> <nombreContenedor:etiqueta>
+$docker run -d -it "puertoExterno:puertoInterno" "nombreContenedor:etiqueta"
 El parámetro -d (dettach) permite correr el contenedor en segundo plano, mientras que -it (interactive terminal) habilita la interacción con el contenedor.
 
 Una vez construidos y en funcionamiento los contenedores se procede a la creación del archivo "docker-compose.yaml", que permitirá correr la aplicación completa. El mismo esta conformado por la siguiente estructura (para facilitar la explicación solo se desarrollara un ítem):
@@ -75,21 +75,22 @@ Una vez construidos y en funcionamiento los contenedores se procede a la creaci�
 
 
 Una vez creado el archivo pertinente se procede a la ejecución del mismo con:
-$ docker-compose up --build
+- $ docker-compose up --build
 Con ello queda disponible la aplicación de manera local.
 
 Se selecciono Amazon Web Service para desplegar la aplicación. Para ello se debe crear una instancia EC2,la cual se podrá ejecutar en la capa gratuita para evitar costos. De manera adicional se adjunta el documento (de creación propia) con los pasos a seguir para activar alarmas de consumo y evitar gastos de facturación. En cuanto a la configuración de reglas de entrada  de la instancia se permitió el trafico entrante en  los puertos TCP http en 80 y 8080, además del puerto ssh en el 22 para poder interactuar con la instancia a desplegar. Una vez finalizada la configuración, se procede a crear y lanzar la instancia (las demás configuraciones se dejaran por defecto para poder seguir utilizando la capa gratuita ofrecida por AWS). 
 Para poder interactuar con la misma se utilizo el protocolo SSH. Para ello antes se debe generar una nueva llave de seguridad desde el asistente proporcionado por EC2 cuando se realiza la configuración, esta es la que permite el acceso a la instancia. Una vez obtenida la clave debemos configurar su propietario ejecutando: 
-$chown 400 <claveObtenida>.pem
+- $chown 400 "claveObtenida".pem
 Ahora si podremos acceder vía SSH a la instancia ejecutando:
-$ssh -i <claveObtenida>.pem ec2-user@<ipInstancia>
+- $ssh -i "claveObtenida".pem ec2-user@"ipInstancia"
 Una vez que iniciamos sesión debemos actualizar dependencias  e instalar y configurar docker y docker-compose :
-$sudo yum update
-$sudo yum install docker
-$sudo curl -L "https://github.com/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-$sudo chmod +x /usr/local/bin/docker-compose
-$sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
-$ sudo usermod -a -G docker ec2-user
+- $sudo yum update
+- $sudo yum install docker
+- $sudo curl -L "https://github.com/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)
+- $(uname -m)" -o /usr/local/bin/docker-compose
+- $sudo chmod +x /usr/local/bin/docker-compose
+- $sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+- $ sudo usermod -a -G docker ec2-user
 
 Para iniciar el servicio de docker en la instancia se usa:
 $sudo service docker start
@@ -97,9 +98,9 @@ Y por ultimo para desplegar los contenedores, al igual que de manera local, se u
 $sudo docker-compose up --build
 
 Una vez realizados estos pasos podremos conectarnos desde cualquier host a nuestra aplicacion usando un navegador con:
-"<ipInstancia>:<puertoExterno>"
+- "ipInstancia":puertoExterno"
 
-Para la prueba es : ENVIAR POR CORREO
+Para la prueba es : 172.31.84.144:8080
 
 REFERENCIAS:
 
