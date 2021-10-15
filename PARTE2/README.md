@@ -100,7 +100,7 @@ $sudo docker-compose up --build
 Una vez realizados estos pasos podremos conectarnos desde cualquier host a nuestra aplicacion usando un navegador con:
 - "ipInstancia":puertoExterno"
 
-Para la prueba es : 172.31.84.144:8080
+Para la prueba es : 18.206.255.71:8080
 
 REFERENCIAS:
 
