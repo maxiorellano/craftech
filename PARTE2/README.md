@@ -27,10 +27,10 @@ Adicionalmente hay que configurar variables de entorno en el archivo .env para l
 
 Una vez finalizada la creación de los Dockerfile pertinentes se debe proceder a construir los mismos. Para ello se debe ejecutar por separado y por consola, situándose en el directorio donde se encuentran ambos Dockerfile el siguiente comando:
 
-$ docker build -t "nombreContenedor:etiqueta"
+- $ docker build -t "nombreContenedor:etiqueta"
 cabe destacar que el parametro -t (tag) indica la etiqueta. De otro modo se asignara un ID alfanumérico.
 Para ejecutar el contenedor construido ejecutar:
-$docker run -d -it "puertoExterno:puertoInterno" "nombreContenedor:etiqueta"
+- $docker run -d -it "puertoExterno:puertoInterno" "nombreContenedor:etiqueta"
 El parámetro -d (dettach) permite correr el contenedor en segundo plano, mientras que -it (interactive terminal) habilita la interacción con el contenedor.
 
 Una vez construidos y en funcionamiento los contenedores se procede a la creación del archivo "docker-compose.yaml", que permitirá correr la aplicación completa. El mismo esta conformado por la siguiente estructura (para facilitar la explicación solo se desarrollara un ítem):
@@ -86,16 +86,16 @@ Ahora si podremos acceder vía SSH a la instancia ejecutando:
 Una vez que iniciamos sesión debemos actualizar dependencias  e instalar y configurar docker y docker-compose :
 - $sudo yum update
 - $sudo yum install docker
-- $sudo curl -L "https://github.com/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)
-- $(uname -m)" -o /usr/local/bin/docker-compose
-- $sudo chmod +x /usr/local/bin/docker-compose
-- $sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
-- $ sudo usermod -a -G docker ec2-user
+- $sudo curl -L https://github.com/docker/compose/releases/download/1.22.0/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
+- sudo chmod +x /usr/local/bin/docker-compose
+- docker-compose version
 
 Para iniciar el servicio de docker en la instancia se usa:
-$sudo service docker start
-Y por ultimo para desplegar los contenedores, al igual que de manera local, se usa:
-$sudo docker-compose up --build
+- $sudo service docker start
+Tambien debemos descargar el repositorio utilizado usando:
+- $git clone https://github.com/maxiorellano/craftech.git
+Y por ultimo para desplegar los contenedores, al igual que de manera local (y primero situandonos en el directorio del repositorio), se usa:
+- $docker-compose up --build
 
 Una vez realizados estos pasos podremos conectarnos desde cualquier host a nuestra aplicacion usando un navegador con:
 - "ipInstancia":puertoExterno"
